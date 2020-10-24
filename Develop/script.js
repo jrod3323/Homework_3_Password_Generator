@@ -81,7 +81,7 @@ function generatePassword(){
     finalPassword = finalPassword+passwordChar[index];
 
   }
-
+  //ads finalPassword output as passwordText.value to print at #password in HTML
   var passwordText = document.querySelector("#password");
 
   passwordText.value = finalPassword;

@@ -4,9 +4,8 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+
 
 }
 
@@ -33,7 +32,7 @@ function generatePassword(){
 
   // Check to ensure password is less than 128 characters, greater than 8 characters, and a number
   if(passwordLength > 128 || passwordLength <8 || !numericPassLength) {
-    alert("Please choose a number between 8 and 128.  You're input must also be numeric.");
+    alert("Please choose a number between 8 and 128.  Your input must also be numeric.");
     return;
   } 
   else{alert("Your password will be "+numericPassLength+" characters long")}
@@ -76,13 +75,14 @@ function generatePassword(){
   }
 
   //Loop to add user defined number of random characters to variable finalPassword to output the random password
-for (i=0 ; i<numericPassLength;i++){
-  var index = Math.floor(Math.random()*passwordChar.length);
+  for (i=0 ; i<numericPassLength;i++){
+    var index = Math.floor(Math.random()*passwordChar.length);
 
-  finalPassword = finalPassword+passwordChar[index];
+    finalPassword = finalPassword+passwordChar[index];
 
-}
+  }
 
-console.log(finalPassword);
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = finalPassword;
 }

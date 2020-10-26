@@ -1,15 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  generatePassword();
-}
+var copyBtn = document.querySelector("#copy");
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
+copyBtn.addEventListener("click", copyToClipboard);
 
-
+// Function that generates password
 function generatePassword(){
   var passwordChar = [];
 
@@ -82,4 +79,22 @@ function generatePassword(){
   var passwordText = document.querySelector("#password");
 
   passwordText.value = finalPassword;
+
+}
+
+// Function to copy generated password to the clipboard
+function copyToClipboard (){
+
+  // grabs element containing the password
+  var password = document.querySelector("#password");
+
+  // checks to be sure user has generated a password before copying to clipboard
+  if(!password.value){
+    alert("You must first generate a password.");
+    return;
+  } else{
+    window.navigator.clipboard.writeText(password.value);
+  }
+  //After copying to clipboard, notify user that action is complete
+  alert("Your new password has been copied to your clipboard!");
 }
